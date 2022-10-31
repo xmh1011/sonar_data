@@ -1,0 +1,37 @@
+[2022-10-31T13:38:23.824014+08:00] [INFO] [run.go:92] ["No configuration provided, using default settings"] [log_id=0ds8bool000]
+[2022-10-31T13:38:23.826208+08:00] [INFO] [store.go:215] ["Using data dir"] [log_id=0ds8bopG000] [service=store] [path=/Users/xiaominghao/.cnosdb/data]
+[2022-10-31T13:38:23.826283+08:00] [INFO] [store.go:288] ["Compaction settings"] [log_id=0ds8bopG000] [service=store] [max_concurrent_compactions=4] [throughput_bytes_per_second=50331648] [throughput_bytes_per_second_burst=50331648]
+[2022-10-31T13:38:23.826304+08:00] [INFO] [fields.go:109] ["Open store (start)"] [log_id=0ds8bopG000] [service=store] [trace_id=0ds8bopW000] [op_name=tsdb_open] [op_event=start]
+[2022-10-31T13:38:23.833890+08:00] [INFO] [cache.go:720] ["Reading file"] [log_id=0ds8bopG000] [engine=tsm1] [service=cacheloader] [path=/Users/xiaominghao/.cnosdb/wal/_internal/monitor/2/_00001.wal] [size=17324]
+[2022-10-31T13:38:23.875419+08:00] [INFO] [store.go:413] ["Opened shard"] [log_id=0ds8bopG000] [service=store] [trace_id=0ds8bopW000] [op_name=tsdb_open] [index_version=inmem] [path=/Users/xiaominghao/.cnosdb/data/_internal/monitor/2] [duration=44.554ms]
+[2022-10-31T13:38:23.875671+08:00] [INFO] [fields.go:111] ["Open store (end)"] [log_id=0ds8bopG000] [service=store] [trace_id=0ds8bopW000] [op_name=tsdb_open] [op_event=end] [op_elapsed=49.367ms]
+[2022-10-31T13:38:23.876017+08:00] [INFO] [http_handler.go:257] ["opened HTTP access log"] [log_id=0ds8bopG000] [path=stderr]
+[2022-10-31T13:38:23.876087+08:00] [INFO] [service.go:76] ["Starting cluster service"] [log_id=0ds8bopG000] [service=coordinator]
+[2022-10-31T13:38:23.876116+08:00] [INFO] [service.go:91] ["Starting snapshot service"] [log_id=0ds8bopG000] [service=snapshot]
+[2022-10-31T13:38:23.876133+08:00] [INFO] [service.go:122] ["Starting continuous query service"] [log_id=0ds8bopG000] [service=continuous_querier]
+[2022-10-31T13:38:23.876149+08:00] [INFO] [service.go:118] ["snapshotter service start"] [log_id=0ds8bopG000] [service=snapshot]
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:38:26 +0800] "GET /ping?wait_for_leader=10s HTTP/1.1" 204 0 "-" "CnosDBShell/unknown"  35
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:38:32 +0800] "POST /write?db=telegraf HTTP/1.1 " 404 44 "-" "Telegraf/unknown Go/1.19.1"  599
+[2022-10-31T13:38:32.773901+08:00] [INFO] [executor.go:343] ["Executing query"] [log_id=0ds8bopG000] [service=query] [query="CREATE DATABASE telegraf"]
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:38:32 +0800] "POST /query HTTP/1.1 {'q': 'CREATE DATABASE "telegraf"'}" 200 33 "-" "Telegraf/unknown Go/1.19.1"  23620
+[2022-10-31T13:38:33.158734+08:00] [INFO] [executor.go:343] ["Executing query"] [log_id=0ds8bopG000] [service=query] [query="SHOW DATABASES"]
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:38:33 +0800] "GET /query?q=show+databases HTTP/1.1" 200 122 "-" "Go-http-client/1.1"  319
+[2022-10-31T13:38:33.159475+08:00] [INFO] [executor.go:343] ["Executing query"] [log_id=0ds8bopG000] [service=query] [query="CREATE DATABASE benchmark WITH REPLICATION 1"]
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:38:33 +0800] "GET /query?consistency=all&q=CREATE+DATABASE+benchmark+WITH+REPLICATION+1 HTTP/1.1" 200 198 "-" "Go-http-client/1.1"  20097
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:38:34 +0800] "POST /write?consistency=all&db=benchmark HTTP/1.1 " 204 0 "-" "load_cnosdb"  461413
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:38:34 +0800] "POST /write?consistency=all&db=benchmark HTTP/1.1 " 204 0 "-" "load_cnosdb"  479655
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:38:34 +0800] "POST /write?consistency=all&db=benchmark HTTP/1.1 " 204 0 "-" "load_cnosdb"  539840
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:38:42 +0800] "POST /write?db=telegraf HTTP/1.1 " 204 0 "-" "Telegraf/unknown Go/1.19.1"  372343
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:38:52 +0800] "POST /write?db=telegraf HTTP/1.1 " 204 0 "-" "Telegraf/unknown Go/1.19.1"  40813
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:39:02 +0800] "POST /write?db=telegraf HTTP/1.1 " 204 0 "-" "Telegraf/unknown Go/1.19.1"  23574
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:39:12 +0800] "POST /write?db=telegraf HTTP/1.1 " 204 0 "-" "Telegraf/unknown Go/1.19.1"  25419
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:39:22 +0800] "POST /write?db=telegraf HTTP/1.1 " 204 0 "-" "Telegraf/unknown Go/1.19.1"  30733
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:39:32 +0800] "POST /write?db=telegraf HTTP/1.1 " 204 0 "-" "Telegraf/unknown Go/1.19.1"  24082
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:39:42 +0800] "POST /write?db=telegraf HTTP/1.1 " 204 0 "-" "Telegraf/unknown Go/1.19.1"  32365
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:39:52 +0800] "POST /write?db=telegraf HTTP/1.1 " 204 0 "-" "Telegraf/unknown Go/1.19.1"  25724
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:40:02 +0800] "POST /write?db=telegraf HTTP/1.1 " 204 0 "-" "Telegraf/unknown Go/1.19.1"  27317
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:40:12 +0800] "POST /write?db=telegraf HTTP/1.1 " 204 0 "-" "Telegraf/unknown Go/1.19.1"  25773
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:40:22 +0800] "POST /write?db=telegraf HTTP/1.1 " 204 0 "-" "Telegraf/unknown Go/1.19.1"  25130
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:40:32 +0800] "POST /write?db=telegraf HTTP/1.1 " 204 0 "-" "Telegraf/unknown Go/1.19.1"  25689
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:40:42 +0800] "POST /write?db=telegraf HTTP/1.1 " 204 0 "-" "Telegraf/unknown Go/1.19.1"  26667
+[httpd] 127.0.0.1 - - [31/Oct/2022:13:40:52 +0800] "POST /write?db=telegraf HTTP/1.1 " 204 0 "-" "Telegraf/unknown Go/1.19.1"  25453
