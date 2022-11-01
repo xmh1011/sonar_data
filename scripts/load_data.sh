@@ -4,6 +4,7 @@ START_TIME=${START_TIME:-946656000}
 FIANL_TIME=${FINAL_TIME:-1640966400}
 STEP_TIME=${STEP_TIME:-6000}
 DATABASE_PORT=${DATABASE_PORT:-8086}
+STEP=${STEP:-10}
 while true
 do
 #generate data
@@ -22,13 +23,13 @@ REPORTING_PERIOD=${REPORTING_PERIOD:-10s}
 DO_ABORT_ON_EXIST=${DO_ABORT_ON_EXIST:-false}
 DO_CREATE_DB=${DO_CREATE_DB:-false}
 
-$EXE_FILE_NAME_1  generatedata5 --startTime=${START_TIME} --endTime=$((START_TIME+STEP_TIME)) | $EXE_FILE_NAME_2 \
-                                                                                            --do-create-db=${DO_CREATE_DB} \
-                                                                                            --do-abort-on-exist=${DO_ABORT_ON_EXIST} \
-                                                                                            --backoff=${BACKOFF_SECS} \
-                                                                                            --workers=${NUM_WORKERS} \
-                                                                                            --batch-size=${BATCH_SIZE} \
-                                                                                            --reporting-period=${REPORTING_PERIOD} \
+$EXE_FILE_NAME_1  generate --startTime=${START_TIME} --endTime=$((START_TIME+STEP_TIME)) --step=${STEP}| $EXE_FILE_NAME_2 \
+                                                                                                         --do-create-db=${DO_CREATE_DB} \
+                                                                                                         --do-abort-on-exist=${DO_ABORT_ON_EXIST} \
+                                                                                                         --backoff=${BACKOFF_SECS} \
+                                                                                                         --workers=${NUM_WORKERS} \
+                                                                                                         --batch-size=${BATCH_SIZE} \
+                                                                                                         --reporting-period=${REPORTING_PERIOD} \
 START_TIME=$((START_TIME+STEP_TIME))
 sleep 5
 done
