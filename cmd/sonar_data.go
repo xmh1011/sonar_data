@@ -37,7 +37,11 @@ func Sonar_data() *cobra.Command {
 			endTime = opt.endTime
 			step = opt.step
 			for i := startTime; i <= endTime; i = i + step {
-				timestamp := 1e9 * i
+				timestamp_1 := 1e9 * i
+				timestamp_2 := 1e9*i + 1e8*2
+				timestamp_3 := 1e9*i + 1e8*4
+				timestamp_4 := 1e9*i + 1e8*6
+				timestamp_5 := 1e9*i + 1e8*8
 				fmt.Fprintf(os.Stdout, "sonar,sonar_id=%d velocity=%f,longitude=\"%fE\",latitude=\"%fN\",angle=%f,distance=%f,signal=%f %d\n",
 					//pkg.RandRange(1,4) //submarine_id
 					pkg.RandRange(1, 10),   //sonar_id
@@ -47,7 +51,62 @@ func Sonar_data() *cobra.Command {
 					pkg.RandValue(0, 360),  //angle
 					pkg.RandValue(0, 100),  //distance
 					pkg.RandValue(0, 180),  //signal
-					timestamp,
+					timestamp_1,
+				)
+				fmt.Fprintf(os.Stdout, "sonar,sonar_id=%d velocity=%f,longitude=\"%fE\",latitude=\"%fN\",angle=%f,distance=%f,signal=%f %d\n",
+					//pkg.RandRange(1,4) //submarine_id
+					pkg.RandRange(1, 10),   //sonar_id
+					pkg.RandValue(0, 18),   //velocity
+					pkg.RandValue(0, 30),   //longitude
+					pkg.RandValue(90, 130), //latitude
+					pkg.RandValue(0, 360),  //angle
+					pkg.RandValue(0, 100),  //distance
+					pkg.RandValue(0, 180),  //signal
+					timestamp_1,
+				)
+				fmt.Fprintf(os.Stdout, "sonar,sonar_id=%d velocity=%f,longitude=\"%fE\",latitude=\"%fN\",angle=%f,distance=%f,signal=%f %d\n",
+					//pkg.RandRange(1,4) //submarine_id
+					pkg.RandRange(1, 10),   //sonar_id
+					pkg.RandValue(0, 18),   //velocity
+					pkg.RandValue(0, 30),   //longitude
+					pkg.RandValue(90, 130), //latitude
+					pkg.RandValue(0, 360),  //angle
+					pkg.RandValue(0, 100),  //distance
+					pkg.RandValue(0, 180),  //signal
+					timestamp_2,
+				)
+				fmt.Fprintf(os.Stdout, "sonar,sonar_id=%d velocity=%f,longitude=\"%fE\",latitude=\"%fN\",angle=%f,distance=%f,signal=%f %d\n",
+					//pkg.RandRange(1,4) //submarine_id
+					pkg.RandRange(1, 10),   //sonar_id
+					pkg.RandValue(0, 18),   //velocity
+					pkg.RandValue(0, 30),   //longitude
+					pkg.RandValue(90, 130), //latitude
+					pkg.RandValue(0, 360),  //angle
+					pkg.RandValue(0, 100),  //distance
+					pkg.RandValue(0, 180),  //signal
+					timestamp_3,
+				)
+				fmt.Fprintf(os.Stdout, "sonar,sonar_id=%d velocity=%f,longitude=\"%fE\",latitude=\"%fN\",angle=%f,distance=%f,signal=%f %d\n",
+					//pkg.RandRange(1,4) //submarine_id
+					pkg.RandRange(1, 10),   //sonar_id
+					pkg.RandValue(0, 18),   //velocity
+					pkg.RandValue(0, 30),   //longitude
+					pkg.RandValue(90, 130), //latitude
+					pkg.RandValue(0, 360),  //angle
+					pkg.RandValue(0, 100),  //distance
+					pkg.RandValue(0, 180),  //signal
+					timestamp_4,
+				)
+				fmt.Fprintf(os.Stdout, "sonar,sonar_id=%d velocity=%f,longitude=\"%fE\",latitude=\"%fN\",angle=%f,distance=%f,signal=%f %d\n",
+					//pkg.RandRange(1,4) //submarine_id
+					pkg.RandRange(1, 10),   //sonar_id
+					pkg.RandValue(0, 18),   //velocity
+					pkg.RandValue(0, 30),   //longitude
+					pkg.RandValue(90, 130), //latitude
+					pkg.RandValue(0, 360),  //angle
+					pkg.RandValue(0, 100),  //distance
+					pkg.RandValue(0, 180),  //signal
+					timestamp_5,
 				)
 			}
 		},
