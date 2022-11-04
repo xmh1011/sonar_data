@@ -4,16 +4,13 @@ START_TIME=${START_TIME:-946656000}
 FIANL_TIME=${FINAL_TIME:-1640966400}
 STEP_TIME=${STEP_TIME:-6000}
 DATABASE_PORT=${DATABASE_PORT:-8086}
-STEP=${STEP:-10}
+STEP=${STEP:-1}
 while true
 do
 #generate data
 EXE_FILE_NAME_1=${EXE_FILE_NAME_1:-$(which sonar_data)}
-# shellcheck disable=SC1072
-$EXE_FILE_NAME_1
 
 EXE_FILE_NAME_2=${EXE_FILE_NAME_2:-$(which load_cnosdb)}
-
 
 # Load parameters
 BATCH_SIZE=${BATCH_SIZE:-10000}
@@ -31,5 +28,5 @@ $EXE_FILE_NAME_1  generate --startTime=${START_TIME} --endTime=$((START_TIME+STE
                                                                                                          --batch-size=${BATCH_SIZE} \
                                                                                                          --reporting-period=${REPORTING_PERIOD} \
 START_TIME=$((START_TIME+STEP_TIME))
-sleep 5
+sleep 1
 done
